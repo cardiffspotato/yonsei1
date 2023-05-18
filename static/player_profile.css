@@ -1,0 +1,244 @@
+.hockey_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.hockey_profile{
+    width: 25vw;
+    height: 50vh;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.hockey_profile_ex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    padding:15px;
+    border:2px solid black; 
+    border-radius: 10px;
+    height: 35vh;
+}
+
+.hockey_profile_custom{
+    display:grid; 
+    grid-template-columns:70px 1fr;
+    grid-template-rows: repeat(5, 30px);
+    }
+
+#message-text{
+    resize: none;
+}
+
+
+.background_logo {
+    position:absolute;
+    z-index: -1;
+    opacity: 0.2;
+    width:400px;
+}
+
+.message_card_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8rem;
+    color: white;
+    text-align: center;
+}
+
+.yonsei_profile{
+    background-image: url('/static/img/player_list_yonsei.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Do Hyeon', sans-serif !important;
+}
+
+.korea_profile{
+    background-image: url('/static/img/player_list_korea.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Do Hyeon', sans-serif !important;
+}
+
+
+.message_count{
+    color: white;
+}
+
+.log{
+    text-decoration: none;
+    color: white !important;
+}
+
+#log_container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.navbar-toggler {
+    background-color: gray !important;
+}          
+
+#navbar_detail{
+    position: sticky;
+    top: 0;
+}
+
+.home{
+    width: 2vw;
+    margin: 2vw;
+}
+
+.message{
+    width: 5vw;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+@media all and (max-width: 768px){
+    .yonsei_profile{
+        background: fixed;
+        background-image: url('/static/img/player_list_mobile_yonsei.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .korea_profile{
+        background: fixed;
+        background-image: url('/static/img/player_list_mobile_korea.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .navbar{
+        font-size: 14px;
+        color: white;
+        z-index: 100;
+    }
+
+    .navbar-toggler {
+        background-color: gray !important;
+    }          
+
+    .home{
+        width: 6vw;
+    }
+
+    .hockey_container{
+        margin-top: 2rem;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .hockey_profile{
+        width: 80vw;
+        height: 40vh;
+    }
+
+    .hockey_profile_ex{
+        height: 35vh;
+    }
+
+    .message_card_list{
+        gap: 3.5rem;
+    }
+
+    .message_card{
+        text-align: center;
+    }
+
+    .message{
+        width: 10vw;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .yonsei_profile{
+        background: fixed;
+        background-image: url('/static/img/player_list_ipad_yonsei.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .korea_profile{
+        background: fixed;
+        background-image: url('/static/img/player_list_ipad_korea.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .navbar{
+        font-size: 14px;
+        color: white;
+        z-index: 100;
+    }
+
+
+    .navbar-toggler {
+        background-color: gray !important;
+    }             
+
+    .home{
+        width: 5vw;
+    }
+
+    .hockey_container{
+        margin-top: 1.125rem;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .hockey_profile{
+        width: 54vw;
+        height: 40vh;
+    }
+
+    .hockey_profile_ex{
+        height: 21vh;
+    }
+
+    .message_card_list{
+        gap: 6.5rem;
+    }
+
+    .message_card{
+        text-align: center;
+    }
+
+    .message{
+        width: 10vw;
+    }
+
+}

@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'signin.css' %}?ver=4">
+
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align:center;" class="signin_info">
+            <form method="POST" action="{% url 'accounts:signin' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="signin_form">
+                    <br><br><br><br><br><br><br><br><br>
+                    <label>학번: </label>
+                    <input name="studentid" type="number" autocomplete="off" id="studentid">
+                    <label>이름: </label>
+                    <input name="username" type="text" autocomplete="off" id="username">
+                    <label>비밀번호: </label>
+                    <input name="password1" type="password">
+                    <label>비밀번호 확인: </label>
+                    <input name="password2" type="password">
+                    <p>(비밀번호는 6자리 이상이어야 합니다)</p>
+                    <label>학교: </label>
+                    <select name="school" id="school">
+                        <option value="선택">==선택==</option>
+                        <option value="Yonsei">연세대학교</option>
+                        <option value="Korea">고려대학교</option>
+                    </select>
+                    <label>종목: </label>
+                    <select name="sports" id="sports">
+                        <option value="선택">==선택==</option>
+                        <option value="soccer">축구</option>
+                        <option value="basketball">농구</option>
+                        <option value="baseball">야구</option>
+                        <option value="icehockey">아이스하키</option>
+                        <option value="rugby">럭비</option>
+                    </select>
+                    <label>학과: </label>
+                    <input name="major" type="text" autocomplete="off" id="major">
+                    <br>
+                    <label>학생증 사진 업로드: </label>
+                    <input name="fileUpload" type="file" accept="image/*" id="fileUpload">
+                    <br>
+                    <p>학생증 사진은 신원확인 후 즉시 삭제됩니다</p>
+                    <input type="submit" class="btn btn-light" value="Sign Up">
+                </div>
+            </form>
+            <br>
+            {% if error %}
+            <div class="alert alert-danger" role="alert" style="text-align:center;">{{error}}</div>
+            {% endif %}
+            <br>
+            <a href="/"><img src="/static/img/home.png" class="home"></a>
+    </div>
+    <br>
+    <br>
+
+
+    {% for message in messages %}
+    <div style="text-align: center">
+        {{ message.tag }}
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        function checkFile(obj, ext) {
+
+            var check = false;
+            var extName = obj.val().substring(obj.val().lastIndexOf(".") + 1).toUpperCase();
+            var str = ext.split(",");
+
+            for (var i = 0; i < str.length; i++) {
+
+                if (extName == str[i].trim()) {
+
+                    check = true;
+                    break;
+
+                } else check = false;
+
+            }
+
+            if (!check) {
+
+                alert(ext + " 파일만 업로드 가능합니다.");
+
+            }
+
+            return check;
+
+        }
+        function checkFileSize(obj, size) {
+
+            var check = false;
+            var sizeinbytes = obj[0].files[0].size;
+            var fSExt = new Array('Bytes', 'KB', 'MB', 'GB');
+            var i = 0;
+            var checkSize = size;
+
+            while (checkSize > 900) {
+
+                checkSize /= 1024;
+                i++;
+
+            }
+
+            checkSize = (Math.round(checkSize * 100) / 100) + ' ' + fSExt[i];
+            var fSize = sizeinbytes;
+
+            if (fSize > size) {
+
+                alert("첨부파일은 " + checkSize + " 이하로 첨부 바랍니다.");
+                check = false;
+
+            } else {
+
+                check = true;
+
+            }
+
+            return check;
+
+        }
+
+        var MaxSize = 5;
+        var FileExt = "PNG, JPG, JPEG";
+
+        document.getElementById('fileUpload').onchange = function () {
+
+            if (this.value != "") {
+
+                var extPlan = FileExt;
+                var checkSize = 1024 * 1024 * MaxSize;
+
+                if (!checkFile($('#fileUpload'), extPlan) | !checkFileSize($('#fileUpload'), checkSize)) {
+
+                    this.value = "";
+                    return;
+
+                }
+
+            }
+
+        };
+    </script>
+</body>

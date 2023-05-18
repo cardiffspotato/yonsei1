@@ -1,0 +1,111 @@
+body{
+    background-image: url('/static/img/login_desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form{
+    font-family: 'Do Hyeon', sans-serif !important;
+}
+
+.mypage_info{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    max-width: 23.625rem;
+}
+
+.mypage_label{
+    width: 8.125rem;
+}
+
+.mypage_detail{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 5rem;
+}
+.home{
+    width: 3vw;
+    margin: 2vw;
+}
+
+.subbtn{
+    background-color: white;
+    border-radius: 2rem;
+    margin-top: 1rem;
+}
+
+#change_alert{
+    margin-top: 2rem;
+}
+
+@media all and (max-width: 768px){
+    body{
+        background: fixed;
+        background-image: url('/static/img/login_mobile.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .navbar{
+        font-size: 14px;
+        color: white;
+    }
+
+    .navbar-toggler {
+        background-color: gray !important;
+    }          
+
+    .home{
+        width: 6vw;
+    }
+
+    .mypage_info{
+        height: 90vh;
+    }
+
+    .mypage_name{
+        width: 10.5vw;
+    }
+
+    .mypage_detail > input{
+        font-size: 0.625rem;
+    }
+
+    #change_alert{
+        margin-top: 1rem;
+    }    
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    body{
+        background: fixed;
+        background-image: url('/static/img/login_ipad.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+
+    .navbar-toggler {
+        background-color: gray !important;
+    }             
+
+    .home{
+        width: 5vw;
+    }
+
+    .mypage_info{
+        height: 60vh;
+    }
+
+    .mypage_name{
+        width: 5vw;
+    }
+}

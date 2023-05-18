@@ -1,0 +1,73 @@
+body{
+    background-image: url('/static/img/login_desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Do Hyeon', sans-serif !important;
+}
+
+.login_info{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.home{
+    width: 3vw;
+}
+
+
+@media all and (max-width: 768px){
+    body{
+        background: fixed;
+        background-image: url('/static/img/login_mobile.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+
+        .navbar{
+            font-size: 14px;
+            color: white;
+        }
+
+        .navbar-toggler {
+            background-color: gray !important;
+        }          
+
+        .home{
+            width: 7vw;
+        }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    body{
+        background: fixed;
+        background-image: url('/static/img/login_ipad.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+
+    .navbar-toggler {
+        background-color: gray !important;
+    }             
+
+    .home{
+        width: 5vw;
+    }
+}
